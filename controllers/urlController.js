@@ -51,7 +51,9 @@ async function handleCreateNewShortUrl(req, res) {
         visitsHistory: []
     });
 
-    return res.json({ id: shortId });
+    return res.render('Home', { id: shortId });
+
+    // return res.json({ id: shortId });
 }
 
 // async function redirecttoUrl(req, res) {
@@ -70,6 +72,7 @@ async function handleCreateNewShortUrl(req, res) {
 //     await urlfromdb.save();
 //     return res.redirect(urlfromdb.url);
 // }
+
 
 async function redirecttoUrl(req, res) {
     const shortId = req.params.id;
