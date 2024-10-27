@@ -48,7 +48,8 @@ async function handleCreateNewShortUrl(req, res) {
     await UrlModel.create({
         url: body.url,
         shortId,
-        visitsHistory: []
+        visitsHistory: [],
+        createdBy: req.user._id
     });
 
     return res.render('Home', { id: shortId });
@@ -76,7 +77,7 @@ async function handleCreateNewShortUrl(req, res) {
 
 async function redirecttoUrl(req, res) {
     const shortId = req.params.id;
-    console.log(shortId)
+    // console.log(shortId)
 
     console.log(`Fetching URL for shortId: ${shortId}`); // Debugging log
 
