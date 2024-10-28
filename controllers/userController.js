@@ -33,13 +33,11 @@ async function handleUserLogin(req, res) {
         })
     }
 
-    const sessionid =uuidv4();
 
-    setUser(sessionid,user)
-    res.cookie('sessionid',sessionid)
+    const token = setUser(user)
+    // console.log(token)
+    res.cookie('jwt',token)
 
-
-    // return res.json({msg:"success",user})
 
     return res.redirect('/')
 

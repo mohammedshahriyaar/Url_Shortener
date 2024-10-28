@@ -5,11 +5,12 @@ const {UrlModel} = require("../models/urlModel")
 
 router.get("/", async(req,res)=>{
 
-    if(!req.user){
+    console.log(req.token)
+    if(!req.token){
         return res.redirect('/login')
     }
 
-    const allUrls = await UrlModel.find({createdBy:req.user._id})
+    const allUrls = await UrlModel.find({createdBy:req.token._id})
 
     // const allUrls = await UrlModel.find({})
     // console.log(allUrls)

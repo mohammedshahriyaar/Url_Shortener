@@ -28,7 +28,7 @@ app.set('views', path.resolve('./views'));
 
 // Route for URL shortening
 app.use('/url', restrictToLoggedInUserOnly, urlRoute);
-app.use('/', checkAuth, staticRoute);
+app.use('/',checkAuth, staticRoute);
 app.use('/user', userRouter);
 
 // Test route
